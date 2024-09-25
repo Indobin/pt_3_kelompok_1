@@ -5,16 +5,28 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ Auth::user()->usertype == 'admin' ? route('admin.dashboard') : route('dashboard') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="Auth::user()->usertype == 'admin' ? route('admin.dashboard') : route('dashboard')"
+                         :active="Auth::user()->usertype == 'admin' ? request()->routeIs('admin.dashboard') : request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    {{-- admin links --}}
+                    {{-- @if (Auth::user()->usertype == 'admin')
+                    <x-nav-link :href="Auth::user()->usertype == 'admin' ? route('admin.waste') : route('waste')"
+                        :active="Auth::user()->usertype == 'admin' ? request()->routeIs('admin.waste') : request()->routeIs('recycleCenter')">
+                       {{ __('Waste') }}
+                   </x-nav-link>
+                   <x-nav-link :href="Auth::user()->usertype == 'admin' ? route('admin.recycleCenter') : route('recycleCenter')"
+                    :active="Auth::user()->usertype == 'admin' ? request()->routeIs('admin.recycleCenter') : request()->routeIs('recycleCenter')">
+                   {{ __('ReycleCenter') }}
+               </x-nav-link>    
+                    @endif --}}
                 </div>
             </div>
 
