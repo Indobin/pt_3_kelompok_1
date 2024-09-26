@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\RecyleRequest;
+use App\Models\RecyleCenter;
 use Illuminate\Http\Request;
 
 class PusatDaurUlangController extends Controller
@@ -12,7 +14,7 @@ class PusatDaurUlangController extends Controller
      */
     public function index()
     {
-        return view('admini.daurUlang.index');
+        return view('admin.daurUlang.index');
     }
 
     /**
@@ -20,15 +22,44 @@ class PusatDaurUlangController extends Controller
      */
     public function create()
     {
-        
+        return view('admin.daurUlang.form',[
+            'recyle' => new RecyleCenter(),
+            'page_meta' => [
+                'url' => route('PusatDaurUlang.store'),
+                'title' => 'Tambah Data',
+                'sub_title' => 'Tambah Data',
+                'description' => 'You can nsnsnsns',
+                'submit_text' => 'Create',
+                'method' => 'post',
+            ]
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(RecyleRequest $request)
     {
-        //
+        //   $file = $request->file('gambar');
+        //   $request->RecyleCenter()->create([
+        //       ...$request->validated(),
+        //       ...['gambar' => $file->store('image/recyle')],
+        //   ]);
+        //   return to_route('PusatDaurUlang.index');
+        // Mengambil file gambar dari request
+        $filePath = $request->file('gambar')->store('image/recyle');
+
+        // Membuat record baru di RecyleCenter dengan data yang divalidasi
+        RecyleCenter::create([
+            'gambar' => $filePath,
+            'name' => $request->name,
+            'lokasi' => $request->lokasi,
+            'kontak_info' => $request->kontak_info,
+            'deskripsi' => $request->deskripsi,
+        ]);
+
+        // Mengarahkan kembali ke route setelah sukses
+        return to_route('PusatDaurUlang.index')->with('success', 'Data berhasil ditambahkan!');
     }
 
     /**

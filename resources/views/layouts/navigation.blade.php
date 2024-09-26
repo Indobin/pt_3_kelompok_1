@@ -65,6 +65,9 @@
                         @endif
                         <!-- Admin-specific links -->
                         @if (Auth::user()->usertype == 'admin')
+                        <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
                             <x-nav-link :href="route('admin.waste.index')" :active="request()->routeIs('admin.waste.index')">
                                 {{ __('Waste') }}
                             </x-nav-link>
