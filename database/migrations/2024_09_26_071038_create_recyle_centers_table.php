@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('recyle_center', function (Blueprint $table) {
+        Schema::create('recyle_centers', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('gambar')->nullable();
+            $table->string('lokasi');
+            $table->string('kontak_info');
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('recyle_center');
+        Schema::dropIfExists('recyle_centers');
     }
 };
