@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('recyle_center', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('gambar')->nullable();
+            $table->string('lokasi');
+            $table->string('kontak_info');
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }
