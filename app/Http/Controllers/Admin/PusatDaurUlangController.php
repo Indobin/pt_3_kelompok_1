@@ -14,7 +14,11 @@ class PusatDaurUlangController extends Controller
      */
     public function index()
     {
-        return view('admin.daurUlang.index');
+        $recyclingCenters = RecyleCenter::latest()->paginate(10);
+        return view('admin.daurUlang.index',[
+            'recyclingCenters' => $recyclingCenters,
+        ]);
+      
     }
 
     /**
@@ -47,8 +51,15 @@ class PusatDaurUlangController extends Controller
         //   ]);
         //   return to_route('PusatDaurUlang.index');
         // Mengambil file gambar dari request
+          // Proses upload file jika ada
+    if ($request->hasFile('gambar')) {
+        // Simpan file gambar ke storage/public/image/recyle
         $filePath = $request->file('gambar')->store('image/recyle');
-
+        // Hapus 'public/' dari path untuk disimpan di database
+        $filePath = str_replace('public/', '', $filePath);
+    } else {
+        $filePath = null; // Jika gambar tidak diupload
+    }
         // Membuat record baru di RecyleCenter dengan data yang divalidasi
         RecyleCenter::create([
             'gambar' => $filePath,
