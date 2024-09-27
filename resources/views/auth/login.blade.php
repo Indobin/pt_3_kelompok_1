@@ -37,14 +37,7 @@
                  href="{{ route('register') }}">
                     belum memiliki akun? register
                 </a>
-          
-
-            <x-danger-button class="ms-3">
-                <a href="{{route('TentangKami')}}">
-                    Kembali
-                </a>
-            </x-danger-button>
-            <x-primary-button class="ms-3">
+            <x-primary-button class="ms-3 ">
                 {{ __('Masuk') }}
             </x-primary-button>
         </div>

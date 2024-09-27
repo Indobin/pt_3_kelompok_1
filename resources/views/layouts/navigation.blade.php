@@ -20,7 +20,7 @@
                     <x-nav-link :href="route('Layanan')" :active="request()->routeIs('Layanan')">
                         {{ __('Layanan') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('Blog')" :active="request()->routeIs('Blog')">
+                    <x-nav-link :href="route('Blogg')" :active="request()->routeIs('Blogg')">
                         {{ __('Blog') }}
                     </x-nav-link>
                     <x-nav-link :href="route('DaurUlang')" :active="request()->routeIs('DaurUlang')">
@@ -29,9 +29,9 @@
                     <x-nav-link :href="route('KontakKami')" :active="request()->routeIs('KontakKami')">
                         {{ __('Kontak Kami') }}
                     </x-nav-link>
-                        <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
+                        {{-- <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
                             {{ __('Login') }}
-                        </x-nav-link>
+                        </x-nav-link> --}}
                         <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
                             {{ __('Register') }}
                         </x-nav-link>
@@ -52,7 +52,7 @@
                         <x-nav-link :href="route('Layanan')" :active="request()->routeIs('Layanan')">
                             {{ __('Layanan') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('Blog')" :active="request()->routeIs('Blog')">
+                        <x-nav-link :href="route('Blogg')" :active="request()->routeIs('Blogg')">
                             {{ __('Blog') }}
                         </x-nav-link>
                         <x-nav-link :href="route('DaurUlang')" :active="request()->routeIs('DaurUlang')">
@@ -117,6 +117,7 @@
             </div>
             @endauth
 
+            
             <!-- Hamburger for Mobile -->
             <div class="-me-2 flex items-center sm:hidden">
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
