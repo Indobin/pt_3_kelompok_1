@@ -33,7 +33,7 @@ require __DIR__.'/auth.php';
 //user routes
 Route::middleware(['auth', 'usersMiddleware'])->group(function(){
 
-    Route::get('dashboard',[UsersController::class, 'index'])->name('dashboard');
+    // Route::get('dashboard',[UsersController::class, 'index'])->name('dashboard');
 });
 
 //admin routes
