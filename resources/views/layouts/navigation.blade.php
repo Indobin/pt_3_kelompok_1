@@ -66,13 +66,16 @@
                         <!-- Admin-specific links -->
                         @if (Auth::user()->usertype == 'admin')
                         <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
-                            {{ __('Dashboard') }}
+                            {{ __('Beranda') }}
                         </x-nav-link>
                             <x-nav-link :href="route('admin.waste.index')" :active="request()->routeIs('admin.waste.index')">
-                                {{ __('Waste') }}
+                                {{ __('Limbah') }}
                             </x-nav-link>
                             <x-nav-link :href="route('PusatDaurUlang.index')" :active="request()->routeIs('PusatDaurUlang.index')">
                                 {{ __('Pusat Daur Ulang') }}
+                            </x-nav-link>
+                            <x-nav-link :href="route('admin.blog.index')" :active="request()->routeIs('admin.blog.index')">
+                                {{ __('Blog') }}
                             </x-nav-link>
                         @endif
 

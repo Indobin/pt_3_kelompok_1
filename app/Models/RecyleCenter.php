@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class RecyleCenter extends Model
 {
+    protected $table = 'recyle_centers';
     protected $fillable =[
         'name',
         'gambar',

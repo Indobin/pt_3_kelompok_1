@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\RecyleRequest;
 use App\Models\RecyleCenter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class PusatDaurUlangController extends Controller
 {
+ 
     /**
      * Display a listing of the resource.
      */
@@ -27,13 +30,13 @@ class PusatDaurUlangController extends Controller
     public function create()
     {
         return view('admin.daurUlang.form',[
-            'recyle' => new RecyleCenter(),
+            'center' => new RecyleCenter(),
             'page_meta' => [
                 'url' => route('PusatDaurUlang.store'),
                 'title' => 'Tambah Data',
                 'sub_title' => 'Tambah Data',
                 'description' => 'You can nsnsnsns',
-                'submit_text' => 'Create',
+                'submit_text' => 'Kirim',
                 'method' => 'post',
             ]
         ]);
@@ -44,23 +47,15 @@ class PusatDaurUlangController extends Controller
      */
     public function store(RecyleRequest $request)
     {
-        //   $file = $request->file('gambar');
-        //   $request->RecyleCenter()->create([
-        //       ...$request->validated(),
-        //       ...['gambar' => $file->store('image/recyle')],
-        //   ]);
-        //   return to_route('PusatDaurUlang.index');
-        // Mengambil file gambar dari request
-          // Proses upload file jika ada
     if ($request->hasFile('gambar')) {
-        // Simpan file gambar ke storage/public/image/recyle
+       
         $filePath = $request->file('gambar')->store('image/recyle');
-        // Hapus 'public/' dari path untuk disimpan di database
+
         $filePath = str_replace('public/', '', $filePath);
     } else {
-        $filePath = null; // Jika gambar tidak diupload
+        $filePath = null;
     }
-        // Membuat record baru di RecyleCenter dengan data yang divalidasi
+    
         RecyleCenter::create([
             'gambar' => $filePath,
             'name' => $request->name,
@@ -84,24 +79,67 @@ class PusatDaurUlangController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(RecyleCenter $center)
     {
-        //
+        \Log::info('Editing RecyleCenter with ID: ' . $center->id);
+        return view('admin.daurUlang.form', [
+            'center' => $center,
+            'page_meta' => [
+                'url' => route('PusatDaurUlang.update', $center->id),
+                'title' => 'Edit Data',
+                'sub_title' => 'Edit Data',
+                'description' => ' center details.',
+                'submit_text' => 'Simpan',
+                'method' => 'put', 
+            ]
+        ]);
     }
+    
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(RecyleRequest $request, RecyleCenter $center)
     {
-        //
+        if ($request->hasFile('gambar')) {
+            // Hapus gambar lama
+            if ($center->gambar) {
+                $oldImage = storage_path('app/public/' . $center->gambar);
+                if (file_exists($oldImage)) {
+                    unlink($oldImage);
+                }
+            }
+    
+            // Simpan gambar baru
+            $filePath = $request->file('gambar')->store('image/recyle');
+            $filePath = str_replace('public/', '', $filePath);
+            $center->gambar = $filePath;
+        }
+    
+        // Update field lainnya
+        $center->name = $request->name;
+        $center->lokasi = $request->lokasi;
+        $center->kontak_info = $request->kontak_info;
+        $center->deskripsi = $request->deskripsi;
+        $center->save();
+        return to_route('PusatDaurUlang.index')->with('success', 'Data berhasil diedit!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(RecyleCenter $center)
     {
-        //
+        // Logging untuk memverifikasi data
+    \Log::info('Deleting RecyleCenter ID: ' . $center->id);
+    $imagePath = storage_path('app/public/' . $center->gambar);
+
+    // Hapus file gambar jika ada
+    if (file_exists($imagePath)) {
+        unlink($imagePath);
+        // dd($imagePath);
+    }
+    $center->delete(); // Menghapus data
+    return redirect()->route('PusatDaurUlang.index')->with('success', 'Pusat Daur Ulang berhasil dihapus.');
     }
 }
