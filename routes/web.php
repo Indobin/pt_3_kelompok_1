@@ -12,6 +12,8 @@ Route::middleware(['preventMiddleware'])->group(function () {
     Route::get('/KontakKami', [Controllers\KontakKamiController::class, 'index'])->name('KontakKami');
 Route::get('/DaurUlang', [Controllers\PusatDaurUlangController::class, 'index'])->name('DaurUlang');
 Route::get('/DaurUlang/{center}', [Controllers\PusatDaurUlangController::class, 'show'])->name('DaurUlang.detail');
+Route::get('/Karbon-Kalkulator', [Controllers\KarbonController::class, 'index'])->name('Karbon');
+Route::post('/Karbon-Kalkulator/Kalkulasi', [Controllers\KarbonController::class, 'kalkulasi'])->name('Karbon.kalkulasi');
 });
 
 // Route::get('/dashboard', function () {
