@@ -1,6 +1,7 @@
 <nav x-data="{ open: false }" class=" bg-white shadow-lg z-10 border-b border-gray-100 mb-6">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fixed w-full bg-white shadow-lg z-50">
+    <div class="fixed w-full bg-white shadow-lg z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
@@ -176,5 +177,6 @@
             </div>
         </div>
         @endauth
+    </div>
     </div>
 </nav>

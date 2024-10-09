@@ -1,8 +1,6 @@
-
-
-<footer class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 dark:bg-gray-900">
- <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-     <div class="sm:flex sm:items-center sm:justify-between">
+<footer class="w-full bg-gray-800 text-white py-6 dark:bg-gray-900">
+    <div class="max-w-screen-xl mx-auto p-4 md:py-8">
+        <div class="sm:flex sm:items-center sm:justify-between">
          <a href="#" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
              <img src="https://th.bing.com/th?id=OIP.SFtUdq84bbJm1iW1kCJxWgHaHj&w=247&h=252&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" class="h-8" alt="Flowbite Logo" />
              <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Buangsampah.com </span>

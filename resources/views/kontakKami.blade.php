@@ -4,8 +4,7 @@
          {{ __('Kontak Kami') }}
      </h2>
  </x-slot> --}}
-
- <div class="py-12">
+ <div class="pt-20 pb-12">
      <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
          <div class="bg-white shadow-md sm:rounded-lg p-6">
              <h3 class="text-2xl font-bold mb-4 text-center">Kami Siap Membantu Anda!</h3>

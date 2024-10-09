@@ -4,8 +4,7 @@
          {{ __('Blog') }}
      </h2>
  </x-slot> --}}
-
- <div class="py-12">
+ <div class="pt-20 pb-12">
      <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
          <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
              <div class="p-6 text-gray-900">
@@ -35,6 +34,38 @@
                          </p>
                          <a href="#" class="mt-4 inline-block text-blue-600 hover:underline">Baca selengkapnya</a>
                      </div>
+                     <div class="bg-gray-100 p-4 rounded-lg shadow">
+                        <h4 class="font-semibold text-lg mb-2">Tips Mengurangi Penggunaan Plastik Sekali Pakai</h4>
+                        <p class="text-sm text-gray-600 mb-4">Diterbitkan pada 10 September 2024</p>
+                        <p class="text-gray-700">
+                            Mengurangi penggunaan plastik sekali pakai dapat dimulai dari kebiasaan sehari-hari...
+                        </p>
+                        <a href="#" class="mt-4 inline-block text-blue-600 hover:underline">Baca selengkapnya</a>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg shadow">
+                        <h4 class="font-semibold text-lg mb-2">Tips Mengurangi Penggunaan Plastik Sekali Pakai</h4>
+                        <p class="text-sm text-gray-600 mb-4">Diterbitkan pada 10 September 2024</p>
+                        <p class="text-gray-700">
+                            Mengurangi penggunaan plastik sekali pakai dapat dimulai dari kebiasaan sehari-hari...
+                        </p>
+                        <a href="#" class="mt-4 inline-block text-blue-600 hover:underline">Baca selengkapnya</a>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg shadow">
+                        <h4 class="font-semibold text-lg mb-2">Tips Mengurangi Penggunaan Plastik Sekali Pakai</h4>
+                        <p class="text-sm text-gray-600 mb-4">Diterbitkan pada 10 September 2024</p>
+                        <p class="text-gray-700">
+                            Mengurangi penggunaan plastik sekali pakai dapat dimulai dari kebiasaan sehari-hari...
+                        </p>
+                        <a href="#" class="mt-4 inline-block text-blue-600 hover:underline">Baca selengkapnya</a>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg shadow">
+                        <h4 class="font-semibold text-lg mb-2">Tips Mengurangi Penggunaan Plastik Sekali Pakai</h4>
+                        <p class="text-sm text-gray-600 mb-4">Diterbitkan pada 10 September 2024</p>
+                        <p class="text-gray-700">
+                            Mengurangi penggunaan plastik sekali pakai dapat dimulai dari kebiasaan sehari-hari...
+                        </p>
+                        <a href="#" class="mt-4 inline-block text-blue-600 hover:underline">Baca selengkapnya</a>
+                    </div>
                  </div>
              </div>
          </div>
