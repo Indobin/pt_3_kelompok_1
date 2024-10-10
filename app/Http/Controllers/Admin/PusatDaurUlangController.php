@@ -81,7 +81,7 @@ class PusatDaurUlangController extends Controller
      */
     public function edit(RecyleCenter $center)
     {
-        \Log::info('Editing RecyleCenter with ID: ' . $center->id);
+        // \Log::info('Editing RecyleCenter with ID: ' . $center->id);
         return view('admin.daurUlang.form', [
             'center' => $center,
             'page_meta' => [
@@ -131,7 +131,7 @@ class PusatDaurUlangController extends Controller
     public function destroy(RecyleCenter $center)
     {
         // Logging untuk memverifikasi data
-    \Log::info('Deleting RecyleCenter ID: ' . $center->id);
+    // \Log::info('Deleting RecyleCenter ID: ' . $center->id);
     $imagePath = storage_path('app/public/' . $center->gambar);
 
     // Hapus file gambar jika ada

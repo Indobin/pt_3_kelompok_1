@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\WasteController;
 use App\Http\Controllers;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,8 @@ Route::get('/DaurUlang', [Controllers\PusatDaurUlangController::class, 'index'])
 Route::get('/DaurUlang/{center}', [Controllers\PusatDaurUlangController::class, 'show'])->name('DaurUlang.detail');
 Route::get('/Karbon-Kalkulator', [Controllers\KarbonController::class, 'index'])->name('Karbon');
 Route::post('/Karbon-Kalkulator/Kalkulasi', [Controllers\KarbonController::class, 'kalkulasi'])->name('Karbon.kalkulasi');
+Route::get('blog', [Controllers\Admin\BlogController::class, 'indexUser'])->name('blog.index');
+Route::get('blog/{id}', [Controllers\Admin\BlogController::class, 'show'])->name('blog.show');
 });
 
 // Route::get('/dashboard', function () {
@@ -47,9 +50,12 @@ Route::middleware(['auth', 'adminMiddleware'])->group(function(){
     Route::post('/admin/PusatDaurUlang', [Controllers\Admin\PusatDaurUlangController::class, 'store'])->name('PusatDaurUlang.store'); 
     Route::delete('admin/PusatDaurUlang/{center}', [Controllers\Admin\PusatDaurUlangController::class, 'destroy'])->name('PusatDaurUlang.hapus');
 
-    Route::get('/admin/blog',[Controllers\Admin\BlogController::class, 'index'])->name('admin.blog.index');
-
-    
+    Route::get('admin/blog', [Controllers\Admin\BlogController::class, 'indexAdmin'])->name('admin.blog.index');
+    Route::get('admin/blog/create', [Controllers\Admin\BlogController::class, 'create'])->name('admin.blog.create');
+    Route::post('admin/blog', [Controllers\Admin\BlogController::class, 'store'])->name('admin.blog.store');
+    Route::get('admin/blog/{post}/edit', [Controllers\Admin\BlogController::class, 'edit'])->name('admin.blog.edit');
+    Route::put('admin/blog/{post}', [Controllers\Admin\BlogController::class, 'update'])->name('admin.blog.update');
+    Route::delete('admin/blog/{post}', [Controllers\Admin\BlogController::class, 'destroy'])->name('admin.blog.destroy');
 
     Route::get('/admin/waste', [WasteController::class, 'index'])->name('admin.waste.index');
     Route::get('/admin/waste/create', [WasteController::class, 'create'])->name('admin.waste.create'); 

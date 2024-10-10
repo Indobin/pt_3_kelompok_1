@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="py-12">
+    <div class="pt-20 pb-12">
     <div class="container mx-auto max-w-xl p-6 bg-white rounded-lg shadow-md">
         <h2 class="text-2xl font-semibold text-center text-green-600 mb-6">Hitung Jejak Karbon Sampah</h2>
         <form action="{{ route('Karbon.kalkulasi') }}" method="POST" class="space-y-4">

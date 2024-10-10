@@ -16,8 +16,11 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         {{-- <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" /> --}}
         <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
+
     </head>
     <body class="font-sans antialiased">
+        
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
