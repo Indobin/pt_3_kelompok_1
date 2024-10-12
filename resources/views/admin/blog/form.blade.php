@@ -27,13 +27,21 @@
                             <x-input-error :messages="$errors->get('content')" class="mt-2" />
                         </div>
 
-                        <!-- Field Status -->
-                        <div class="mb-6">
-                            <select class="form-control" id="status" name="status" :value="__('Status')" />
-                            <option value="draft" {{ old('status') == 'draft' ? 'selected' : '' }}>Draft</option>
-                            <option value="published" {{ old('status') == 'published' ? 'selected' : '' }}>Published</option>
-                        </div>
+                       <!-- Field Status -->
+<div class="mb-6">
+    <label for="status" class="block mb-2 text-sm font-medium text-gray-700">Status</label>
+    <select id="status" name="status" class="form-control block w-full p-2.5 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out">
+        <option value="draft" {{ old('status') == 'draft' ? 'selected' : '' }}>Draft</option>
+        <option value="published" {{ old('status') == 'published' ? 'selected' : '' }}>Published</option>
+    </select>
+    @error('status')
+        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+    @enderror
+</div>
 
+                        <x-primary-button>
+                            {{ $page_meta['submit_text'] }}
+                        </x-primary-button>
                     
                     </form>
                 </div>
