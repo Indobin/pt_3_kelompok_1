@@ -1,19 +1,15 @@
 <x-app-layout>
-    {{-- <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Layanan Kami') }}
-        </h2>
-    </x-slot> --}}
 
     <div class="pt-20 pb-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden">
                 <div class="p-6 text-gray-900">
+                    
                     <h3 class="text-2xl font-bold mb-4">Layanan Pengelolaan Sampah</h3>
                     <p class="mb-6">
                         Kami menyediakan layanan pengelolaan sampah berbasis lingkungan yang mencakup pengumpulan, pemilahan, dan daur ulang.
                     </p>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         <div class="bg-gray-100 p-4 rounded-lg shadow">
                             <h4 class="font-semibold text-lg mb-2">Pengumpulan Sampah</h4>
                             <p>
@@ -33,6 +29,7 @@
                             </p>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>

@@ -6,7 +6,7 @@
  </x-slot> --}}
  <div class="pt-20 pb-12">
      <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-         <div class="bg-white shadow-md sm:rounded-lg p-6">
+         <div class="bg-white ">
              <h3 class="text-2xl font-bold mb-4 text-center">Kami Siap Membantu Anda!</h3>
              <p class="text-gray-700 text-center mb-6">Jika Anda memiliki pertanyaan atau butuh informasi lebih lanjut, silakan hubungi kami melalui form di bawah ini.</p>
              

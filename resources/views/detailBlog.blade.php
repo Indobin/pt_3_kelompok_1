@@ -1,10 +1,10 @@
 <x-app-layout>
     <div class="pt-20 pb-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden">
                 <div class="p-6 text-gray-900">
                     <div class="flex flex-col lg:flex-row">
-                        
+                        {{-- <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"> --}}
                         <!-- Detail Informasi Blog -->
                         <div class="w-full">
                             <header class="mb-4">
@@ -18,8 +18,8 @@
                                 </div>
                             </header>
                         </div>
-                    </div>
-
+                      
+                  </div>
                     <!-- Tombol Kembali -->
                     <div class="mt-8">
                         <a href="{{ route('Blogg') }}" class="inline-block bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">

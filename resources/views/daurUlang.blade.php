@@ -6,8 +6,12 @@
     </x-slot> --}}
     <div class="pt-20 pb-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden">
                 <div class="p-6 text-gray-900">
+                    {{-- <div class="pt-20 pb-12">
+                        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                            <div class="bg-white overflow-hidden ">
+                                <div class="p-6 text-gray-900"> --}}
     {{-- <section class="pt-20 pb-12 bg-gray-100 w-full"> --}}
 {{--       
             <h1 class="text-2xl font-semibold mb-6 text-left mt-4">Our Blog</h1> --}}
