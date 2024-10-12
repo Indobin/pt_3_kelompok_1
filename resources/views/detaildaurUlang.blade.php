@@ -18,7 +18,7 @@
                      <div class="lg:w-1/2 w-full lg:pl-10">
                          <header class="mb-4">
                              <h1 class="text-3xl font-bold mb-2">{{ $center->name }}</h1>
-                             <p class="text-gray-600">{{ $center->deskripsi }}</p>
+                             <p class="text-gray-600"> {!! ($center->deskripsi) !!}</p>
                          </header>
 
                          <!-- Informasi Kontak -->
@@ -38,7 +38,7 @@
                          <!-- Tombol Kembali -->
                          <div class="mt-8">
                              <a href="{{ route('DaurUlang') }}" class="inline-block bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">
-                                 &larr; Kembali
+                                 Kembali
                              </a>
                          </div>
                      </div>

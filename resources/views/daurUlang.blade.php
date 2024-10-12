@@ -27,7 +27,8 @@
                                 <h3 class="text-lg font-bold">{{ $data->name }}</h3>
                             </header>
                             <p class="text-gray-700 text-sm mb-4 truncate-multiline">
-                                {{ Str::limit($data->deskripsi, 100) }}
+                                {{-- {{ Str::limit($data->deskripsi, 100) }} --}}
+                                {!! Str::limit($data->deskripsi, 70) !!}
                             </p>
                             <div class="flex justify-between space-x-2">
                                 <a href="{{route('DaurUlang.detail', $data->id)}}" class="mt-4 inline-block text-blue-600 hover:underline">Baca selengkapnya</a>

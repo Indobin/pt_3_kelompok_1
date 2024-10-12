@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['preventMiddleware'])->group(function () {
     Route::get('/', [Controllers\TentangKamiController::class, 'index'])->name('TentangKami');
     Route::get('/Layanan', [Controllers\LayananController::class, 'index'])->name('Layanan');
-    Route::get('/Blog', [Controllers\BlogController::class, 'index'])->name('Blogg');
+    // Route::get('/Blog', [Controllers\BlogController::class, 'index'])->name('Blogg');
     Route::get('/KontakKami', [Controllers\KontakKamiController::class, 'index'])->name('KontakKami');
 Route::get('/DaurUlang', [Controllers\PusatDaurUlangController::class, 'index'])->name('DaurUlang');
 Route::get('/DaurUlang/{center}', [Controllers\PusatDaurUlangController::class, 'show'])->name('DaurUlang.detail');
 Route::get('/Karbon-Kalkulator', [Controllers\KarbonController::class, 'index'])->name('Karbon');
 Route::post('/Karbon-Kalkulator/Kalkulasi', [Controllers\KarbonController::class, 'kalkulasi'])->name('Karbon.kalkulasi');
-Route::get('blog', [Controllers\Admin\BlogController::class, 'indexUser'])->name('blog.index');
-Route::get('blog/{id}', [Controllers\Admin\BlogController::class, 'show'])->name('blog.show');
+Route::get('/Blog', [Controllers\Admin\BlogController::class, 'indexUser'])->name('Blogg');
+Route::get('/Blog/{blogs}', [Controllers\Admin\BlogController::class, 'show'])->name('blog.show');
 });
 
 // Route::get('/dashboard', function () {
@@ -53,9 +53,9 @@ Route::middleware(['auth', 'adminMiddleware'])->group(function(){
     Route::get('admin/blog', [Controllers\Admin\BlogController::class, 'indexAdmin'])->name('admin.blog.index');
     Route::get('admin/blog/create', [Controllers\Admin\BlogController::class, 'create'])->name('admin.blog.create');
     Route::post('admin/blog', [Controllers\Admin\BlogController::class, 'store'])->name('admin.blog.store');
-    Route::get('admin/blog/{post}/edit', [Controllers\Admin\BlogController::class, 'edit'])->name('admin.blog.edit');
-    Route::put('admin/blog/{post}', [Controllers\Admin\BlogController::class, 'update'])->name('admin.blog.update');
-    Route::delete('admin/blog/{post}', [Controllers\Admin\BlogController::class, 'destroy'])->name('admin.blog.destroy');
+    Route::get('admin/blog/{blogs}/edit', [Controllers\Admin\BlogController::class, 'edit'])->name('admin.blog.edit');
+    Route::put('admin/blog/{blogs}', [Controllers\Admin\BlogController::class, 'update'])->name('admin.blog.update');
+    Route::delete('admin/blog/{blogs}', [Controllers\Admin\BlogController::class, 'destroy'])->name('admin.blog.destroy');
 
     Route::get('/admin/waste', [WasteController::class, 'index'])->name('admin.waste.index');
     Route::get('/admin/waste/create', [WasteController::class, 'create'])->name('admin.waste.create'); 

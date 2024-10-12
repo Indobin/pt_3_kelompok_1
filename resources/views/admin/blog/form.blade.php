@@ -16,14 +16,14 @@
                         <!-- Field Title -->
                         <div class="mb-6">
                             <x-input-label for="name" :value="__('Judul Postingan')" />
-                            <x-text-input id="title" class="block mt-1 w-full" type="text" value="{{ old('title') }}" name="title"/>
+                            <x-text-input id="title" class="block mt-1 w-full" type="text" value="{{ old('title', $blogs->title) }}" name="title"/>
                             <x-input-error :messages="$errors->get('title')" class="mt-2" />
                         </div>
 
                         <!-- Field Content -->
                         <div class="mb-6">
                             <x-input-label for="content" :value="__('Konten')" />
-                            <textarea class="form-control" id="content" name="content">{{ old('content') }}</textarea>
+                            <textarea class="form-control" id="content" name="content">{{ old('content', $blogs->content) }}</textarea>
                             <x-input-error :messages="$errors->get('content')" class="mt-2" />
                         </div>
 
@@ -38,7 +38,9 @@
         <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
     @enderror
 </div>
-
+<x-secondary-button >
+    <a href="{{route('admin.blog.index')}}">Kembali</a>
+</x-secondary-button>
                         <x-primary-button>
                             {{ $page_meta['submit_text'] }}
                         </x-primary-button>

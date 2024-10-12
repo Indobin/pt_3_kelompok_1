@@ -25,7 +25,7 @@
 
                         <!-- Field Name -->
                         <div class="mb-6">
-                            <x-input-label for="name" :value="__('Name')" />
+                            <x-input-label for="name" :value="__('Nama')" />
                             <x-text-input id="name" class="block mt-1 w-full" type="text" value="{{ old('name', $center->name) }}" name="name"/>
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
                         </div>
@@ -61,3 +61,10 @@
         </div>
     </div>
 </x-app-layout>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#deskripsi' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>

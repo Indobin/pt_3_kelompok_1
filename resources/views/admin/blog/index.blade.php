@@ -16,6 +16,17 @@
                             </a>
                         </x-primary-button>
                     </div>
+                    @if(session('success'))
+                    <script>
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Sukses!',
+                            text: '{{ session('success') }}',
+                            timer: 2000, // durasi alert ditampilkan
+                            showConfirmButton: false
+                        });
+                    </script>
+                @endif
                     <x-table>
                         <thead>
                             <tr class="bg-gray-200">
@@ -27,25 +38,31 @@
                             </tr>
                         </thead>
                         <x-table.tbody>
+                            @foreach ($blog as $blogs)
                             <x-table.tr>
-                                @foreach ($blog as $blogs)
+                            
                                     
-                              
                                 <x-table.td>{{$loop->iteration}}</x-table.td>
                                 <x-table.td>{{$blogs->title}}</x-table.td>
-                                <x-table.td>{{$blogs->content}}</x-table.td>
-                                <x-table.td>j</x-table.td>
+                                <x-table.td>{!! \Illuminate\Support\Str::limit($blogs->content, 40) !!}</x-table.td>
+                                <x-table.td>{{ $blogs->created_at->format('d M Y') }}</x-table.td>
                                 <td class="py-3 px-6 text-center">
-                                    <a href="#" class="bg-blue-500 text-white px-3 py-1 rounded">Edit</a>
-                                    <form action="#" method="POST" class="inline">
+                                    <x-edit-button>
+                                        <a href="{{ route('admin.blog.edit', $blogs->id ) }}">
+                                            Edit
+                                        </a>
+
+                                    </x-edit-button>
+                                    <form action="{{ route('admin.blog.destroy', $blogs->id) }}" method="POST" class="inline-block">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="bg-red-500 text-white px-3 py-1 rounded">Hapus</button>
-                                    </form>
+                                        <x-danger-button type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus pusat ini?')">
+                                            Hapus
+                                        </x-danger-button>
                                 </td>
-                                @endforeach
+                             
                             </x-table.tr>
-                            
+                            @endforeach
                         </x-table.tbody>
                     </x-table>
                 </div>

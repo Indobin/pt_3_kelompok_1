@@ -20,7 +20,7 @@ class BlogController extends Controller
     public function create()
     {
         return view('admin.blog.form',[
-            'blog' => new Blog(),
+            'blogs' => new Blog(),
             'page_meta' => [
                 'url' => route('admin.blog.store'),
                 'title' => 'Tambah Data',
@@ -42,45 +42,52 @@ class BlogController extends Controller
             'status' => $request->status,
         ]);
 
-        return redirect()->route('admin.blog.index')->with('success', 'Blog created successfully!');
+        return redirect()->route('admin.blog.index')->with('success', 'Data berhasil ditambahkan!');
     }
 
     // Admin: Mengedit postingan
-    public function edit(Blog $post)
+    public function edit(Blog $blogs)
     {
-        return view('admin.blog.edit', compact('post'));
+        return view('admin.blog.form', [
+            'blogs' => $blogs,
+            'page_meta' => [
+                'url' => route('admin.blog.update', $blogs->id),
+                'title' => 'Edit Data',
+                'sub_title' => 'Edit Data',
+                'description' => 'Blog details.',
+                'submit_text' => 'Simpan',
+                'method' => 'put', 
+            ]
+        ]);
     }
 
     // Admin: Update postingan
-    public function update(Request $request, Blog $post)
+    public function update(BlogRequest $request, Blog $blogs)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'content' => 'required',
-            'status' => 'required|in:draft,published',
-        ]);
-
-        $post->update($validatedData);
-        return redirect()->route('admin.blog.index')->with('success', 'Blog updated successfully!');
+        $blogs->title = $request->title;
+        $blogs->content = $request->content;
+        $blogs->status = $request->status;
+        $blogs->save();
+        return redirect()->route('admin.blog.index')->with('success', 'Data berhasil diedit!');
     }
 
     // Admin: Hapus postingan
-    public function destroy(Blog $post)
+    public function destroy(Blog $blogs)
     {
-        $post->delete();
-        return redirect()->route('admin.blog.index')->with('success', 'Blog deleted successfully!');
+        $blogs->delete();
+        return redirect()->route('admin.blog.index')->with('success', 'Data berhasil dihapus!');
     }
 
     // User: Menampilkan semua postingan yang dipublish
     public function indexUser()
     {
-        $blog = Blog::where('status', 'published')->latest()->get();
-        return view('user.blog.index', compact('blog'));
+        $blogs = Blog::where('status', 'published')->latest()->get();
+        return view('blog', compact('blogs'));
     }
 
     // User: Menampilkan detail postingan
-    public function show(Blog $post)
+    public function show(Blog $blogs)
     {
-        return view('user.blog.show', compact('post'));
+        return view('detailBlog', compact('blogs'));
     }
 }
